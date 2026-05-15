@@ -1,0 +1,356 @@
+{
+  "sentence_count": 39,
+  "sentences": [
+    {
+      "id": 1,
+      "korean": "안녕하세요 여러분 한 주 잘 보내고 계신가요? 저의 팟 게스트에 돌아와 주셔서 감사합니다.",
+      "english": "Hello everyone, how is your week? Thank you for coming back to my pod guest.",
+      "audio_file": "sentence_01.m4a",
+      "start": 0.0,
+      "end": 6.5,
+      "duration": 6.5
+    },
+    {
+      "id": 2,
+      "korean": "오늘은요 제가 저의 데일리 루틴 하루 일과에 대해서 얘기를 하려고 해요.",
+      "english": "Today I'm going to talk about my daily routine.",
+      "audio_file": "sentence_02.m4a",
+      "start": 7.44,
+      "end": 15.98,
+      "duration": 8.54
+    },
+    {
+      "id": 3,
+      "korean": "제가 한국인 선생님으로서 몇시에 일어나고 언제 수업을 하고 하루를 어떻게 보내는지 알려드리면서 여러분들이 일상적인 단어들, 표현들 배우면 좋을 것 같아서요. 오늘은 저의 하루 하루 일과에 대해서 얘기를 하려고 합니다.",
+      "english": "As a Korean teacher, I thought it would be good for you to learn everyday words and expressions by telling me what time I wake up, when I teach, and how I spend my day. Today I would like to talk about my daily routine.",
+      "audio_file": "sentence_03.m4a",
+      "start": 16.7,
+      "end": 39.86,
+      "duration": 23.16
+    },
+    {
+      "id": 4,
+      "korean": "여러분들은 아침형 인간이에요? 저녁형 인간이에요?",
+      "english": "Are you a morning person? Are you an evening person?",
+      "audio_file": "sentence_04.m4a",
+      "start": 40.6,
+      "end": 45.8,
+      "duration": 5.2
+    },
+    {
+      "id": 5,
+      "korean": "저는요 완전 아침형 인간이에요. 그래서 아침에 일찍 일어나는 걸 좋아합니다. 저는 보통 그래서 아침 5시 5시에 일어나요. 아침에 더 생산적이라서 저는 아침에 일찍 일어나는 걸 좋아합니다.",
+      "english": "I am a total morning person. That's why I like to wake up early in the morning. That's why I usually wake up at 5:05 in the morning. I like waking up early in the morning because I am more productive in the morning.",
+      "audio_file": "sentence_05.m4a",
+      "start": 46.58,
+      "end": 66.52,
+      "duration": 19.94
+    },
+    {
+      "id": 6,
+      "korean": "보통 5시에 일어나면 양치하고 세수하고 그리고 항상 따뜻한 커피를 마셔요. 저는 아침에 따뜻한 물이나 차 마시는 걸 좋아해서 커피 아니면 차 따뜻한 걸 마십니다. 그리고 저는 보통 아침에 수업이 있어요.",
+      "english": "I usually wake up at 5 o'clock, brush my teeth, wash my face, and always drink warm coffee. I like to drink warm water or tea in the morning, so I drink warm coffee or tea. And I usually have classes in the morning.",
+      "audio_file": "sentence_06.m4a",
+      "start": 67.2,
+      "end": 89.68,
+      "duration": 22.48
+    },
+    {
+      "id": 7,
+      "korean": "한국 아침 시간은 유럽에서 저녁시간, 저녁시간이라서요. 저는 보통 5시 반에서 6시에 수업이 있어요.",
+      "english": "Morning time in Korea is evening time in Europe. I usually have class from 5:30 to 6:00.",
+      "audio_file": "sentence_07.m4a",
+      "start": 90.32,
+      "end": 100.28,
+      "duration": 9.96
+    },
+    {
+      "id": 8,
+      "korean": "그래서요 보통 5시 반이나 6시부터 8시 8시까지 일을 합니다. 일을 하고 이제 아침 8시 8시에 저는 헬스장에 가요. 제가 요새 다이어트를 하고 있습니다. 그래서 아침에 항상 헬스장에 가려고 해요.",
+      "english": "So, I usually work from 5:30 or 6 to 8:00. After work, now at 8 o'clock in the morning, I go to the gym. I'm on a diet these days. So I always try to go to the gym in the morning.",
+      "audio_file": "sentence_08.m4a",
+      "start": 101.0,
+      "end": 124.74,
+      "duration": 23.74
+    },
+    {
+      "id": 9,
+      "korean": "제가 헬리니? 헬리니라서 밤에 헬스장에 가면 사람이 너무 많아서 부끄러워요. 그래서 헬리니 저는 아침에 아침에 헬스장에 갑니다. 아침에 가면 사람이 적어서 좋아요. 사람이 적어서 혼자 편하게 운동을 합니다.",
+      "english": "Am I Hellenic? Because it's Hellini, I feel embarrassed when I go to the gym at night because there are so many people. So Hellini, I go to the gym in the morning. It's good if you go in the morning because there are fewer people. There are few people, so I can exercise comfortably alone.",
+      "audio_file": "sentence_09.m4a",
+      "start": 125.46,
+      "end": 146.22,
+      "duration": 20.76
+    },
+    {
+      "id": 10,
+      "korean": "제가 또 근육을 만들고 싶어서 근력 운동, 웨이트를 하고 있어요. 제가 스쿼트도 하고, 데드리프트도 하고 이렇게 웨이트 운동을 일주일에 4번 하고 있습니다.",
+      "english": "I want to build muscle again, so I'm doing strength training and lifting weights. I do squats, deadlifts, and weight exercises four times a week.",
+      "audio_file": "sentence_10.m4a",
+      "start": 147.02,
+      "end": 166.66,
+      "duration": 19.64
+    },
+    {
+      "id": 11,
+      "korean": "유산소 운동은 매일 매일 하려고 하고 있어요. 저는 이 런닝 머신을 보통 40분 정도 유산소 운동을 하고, 근력 운동은 보통 50분 정도 하는 것 같아요. 그래서 아침에 헬스장에서 1시간 반 정도 운동을 합니다.",
+      "english": "I try to do aerobic exercise every day. I usually do aerobic exercise on this treadmill for about 40 minutes and strength training for about 50 minutes. So, I work out at the gym for about an hour and a half in the morning.",
+      "audio_file": "sentence_11.m4a",
+      "start": 167.52,
+      "end": 191.48,
+      "duration": 23.96
+    },
+    {
+      "id": 12,
+      "korean": "운동을 하고 집에 오면 보통 9시 반? 9시 반에서 10시 정도예요. 그러면 저는 이제 샤워, 샤워를 합니다.",
+      "english": "When you come home after exercising, it's usually around 9:30? It's around 9:30 to 10:00. So now I take a shower, a shower.",
+      "audio_file": "sentence_12.m4a",
+      "start": 192.4,
+      "end": 201.36,
+      "duration": 8.96
+    },
+    {
+      "id": 13,
+      "korean": "저는 노래 들으면서 샤워하는 걸 좋아해요. 그리고 항상 샤워를 오래 합니다.",
+      "english": "I like taking a shower while listening to music. And I always take long showers.",
+      "audio_file": "sentence_13.m4a",
+      "start": 202.08,
+      "end": 208.76,
+      "duration": 6.68
+    },
+    {
+      "id": 14,
+      "korean": "저는 따뜻한 물 안에 이렇게 가만히 서 있는 게 좋아요.",
+      "english": "I like standing still like this in warm water.",
+      "audio_file": "sentence_14.m4a",
+      "start": 209.52,
+      "end": 213.36,
+      "duration": 3.84
+    },
+    {
+      "id": 15,
+      "korean": "여러분도 저랑 비슷한가요? 저는 머리 감는 거는 2분인데,",
+      "english": "Are you similar to me? I wash my hair in 2 minutes.",
+      "audio_file": "sentence_15.m4a",
+      "start": 214.26,
+      "end": 221.54,
+      "duration": 7.28
+    },
+    {
+      "id": 16,
+      "korean": "따뜻한 물에 가만히 서서 30분을 멍하니 있어요. 멍 때리고 있습니다. 노래 들으면서 약간 저의 힐링 타인인 것 같아요. 힐링하는 시간, 따뜻한 물, 샤워하면서 그렇게 조금 멍도 때리고, 샤워하고 나와서 이제 머리 말리고, 머리 말리고, 로션 바르고.",
+      "english": "Stand still in the warm water and zone out for 30 minutes. I'm in a daze. While listening to the song, I feel like it's a bit of my healing other person. Healing time, warm water, taking a shower, getting a little bruised, coming out of the shower, drying my hair, drying my hair, applying lotion.",
+      "audio_file": "sentence_16.m4a",
+      "start": 223.22,
+      "end": 249.5,
+      "duration": 26.28
+    },
+    {
+      "id": 17,
+      "korean": "저는 피부가 진짜 건조해요.",
+      "english": "I have really dry skin.",
+      "audio_file": "sentence_17.m4a",
+      "start": 250.12,
+      "end": 253.42,
+      "duration": 3.3
+    },
+    {
+      "id": 18,
+      "korean": "건조해서 로션을 진짜 많이 바릅니다. 진짜 많이 발라요. 로션을 많이 많이 바르고, 머리 말리고, 샤워 끝. 그리고 저는 이제 아침을 먹는데요.",
+      "english": "It's dry so I apply a lot of lotion. I really apply a lot. Apply a lot of lotion, dry your hair, and finish showering. And now I'm eating breakfast.",
+      "audio_file": "sentence_18.m4a",
+      "start": 254.04,
+      "end": 268.96,
+      "duration": 14.92
+    },
+    {
+      "id": 19,
+      "korean": "아침은 제가 운동을 했기 때문에",
+      "english": "Because I exercised in the morning",
+      "audio_file": "sentence_19.m4a",
+      "start": 269.56,
+      "end": 273.32,
+      "duration": 3.76
+    },
+    {
+      "id": 20,
+      "korean": "단백질을 먹으려고 해요.",
+      "english": "I'm trying to eat protein.",
+      "audio_file": "sentence_20.m4a",
+      "start": 274.92,
+      "end": 277.26,
+      "duration": 2.34
+    },
+    {
+      "id": 21,
+      "korean": "이 프로틴 쉐이크.",
+      "english": "This protein shake.",
+      "audio_file": "sentence_21.m4a",
+      "start": 277.88,
+      "end": 278.96,
+      "duration": 1.08
+    },
+    {
+      "id": 22,
+      "korean": "한국에 맛있는 프로틴 쉐이크가 진짜 많아요. 프로틴 쉐이크 먹고, 계란 먹고, 또 제가 고구마, 고구마를 너무 너무 너무 좋아합니다. 여러분 한국 고구마 먹어봤어요? 한국 고구마가 진짜 맛있어요.",
+      "english": "There are so many delicious protein shakes in Korea. I drink protein shakes, I eat eggs, and I really, really love sweet potatoes. Have you ever tried Korean sweet potatoes? Korean sweet potatoes are really delicious.",
+      "audio_file": "sentence_22.m4a",
+      "start": 279.66,
+      "end": 298.98,
+      "duration": 19.32
+    },
+    {
+      "id": 23,
+      "korean": "제가 외국에서 고구마 먹고 약간 충격 받았거든요. 외국에는 고구마가 주황색? 주황색이에요.",
+      "english": "I was a bit shocked when I ate sweet potatoes abroad. Are sweet potatoes orange in foreign countries? It's orange.",
+      "audio_file": "sentence_23.m4a",
+      "start": 299.74,
+      "end": 310.08,
+      "duration": 10.34
+    },
+    {
+      "id": 24,
+      "korean": "한국 고구마는 노란색, 노란색이고 진짜 달아요. 진짜 진짜 달고 맛있습니다. 저는 그래서 아침에 프로틴 쉐이크랑 계란이랑 고구마 이렇게 먹고 가끔 요거트도 먹고 과일도 자주 먹어요. 이렇게 하면 아침도 끝.",
+      "english": "Korean sweet potatoes are yellow, yellow, and really sweet. It's really really sweet and delicious. So, in the morning, I eat a protein shake, eggs, and sweet potatoes, sometimes yogurt, and fruit often. If you do this, your morning will be over.",
+      "audio_file": "sentence_24.m4a",
+      "start": 310.68,
+      "end": 333.52,
+      "duration": 22.84
+    },
+    {
+      "id": 25,
+      "korean": "아침 먹으면 저는 다시 일을 합니다. 수업이 보통 더 있어요. 보통 2개에서 3개 정도 수업이 더 있습니다.",
+      "english": "After breakfast, I go back to work. There are usually more classes. There are usually two to three more classes.",
+      "audio_file": "sentence_25.m4a",
+      "start": 334.52,
+      "end": 342.62,
+      "duration": 8.1
+    },
+    {
+      "id": 26,
+      "korean": "수업을 하면 보통 2시, 2시나 빠르면 1시, 보통 2시, 2시 정도예요. 저는 2시에 다시 잡니다.",
+      "english": "When I have a class, it's usually 2 o'clock, 2 o'clock, or at the earliest, 1 o'clock, usually 2 o'clock, 2 o'clock. I go to bed again at 2 o'clock.",
+      "audio_file": "sentence_26.m4a",
+      "start": 343.34,
+      "end": 354.4,
+      "duration": 11.06
+    },
+    {
+      "id": 27,
+      "korean": "피곤해요. 제가 아침 5시에 일어났잖아요. 그래서 2시에는 저는 기절, 기절해요. 낮잠을 잡니다. 이게 낮잠을 20분, 20분, 15분 자는 게 좋대요. 저는 1시간, 2시간 많이 자요. 15분 자려고 했는데 항상 실패. 실패하고 1시간, 2시간, 낮잠 자고, 낮잠 자고 일어나면 또 배고파요. 배고파서 점심을 먹습니다. 점심은 아무거나 먹는데요.",
+      "english": "I'm tired. I woke up at 5 in the morning. So at 2 o'clock I faint, faint. Take a nap. They say it's good to take a 20-, 20-, or 15-minute nap. I sleep a lot, an hour or two. I tried to sleep for 15 minutes but always failed. After failing, I take a nap for an hour, then 2 hours, and when I wake up from the nap, I'm hungry again. I'm hungry so I eat lunch. I eat anything for lunch.",
+      "audio_file": "sentence_27.m4a",
+      "start": 355.0,
+      "end": 393.66,
+      "duration": 38.66
+    },
+    {
+      "id": 28,
+      "korean": "제가 옛날에는 요리를 많이 했는데",
+      "english": "I used to cook a lot in the past.",
+      "audio_file": "sentence_28.m4a",
+      "start": 394.3,
+      "end": 396.9,
+      "duration": 2.6
+    },
+    {
+      "id": 29,
+      "korean": "요새 조금 귀찮고 바쁘고 그래서 간단한 음식을 많이 먹어요. 보통 냉동 음식, 냉동 음식이나 라면, 라면도 좀 먹고",
+      "english": "It's a bit tiresome and busy these days, so I eat a lot of simple food. I usually eat some frozen food, frozen food, ramen, and ramen.",
+      "audio_file": "sentence_29.m4a",
+      "start": 397.62,
+      "end": 411.54,
+      "duration": 13.92
+    },
+    {
+      "id": 30,
+      "korean": "삼각김밥, 냉동 삼각김밥 많이 먹고",
+      "english": "Eat a lot of triangle kimbap and frozen triangle kimbap",
+      "audio_file": "sentence_30.m4a",
+      "start": 412.26,
+      "end": 416.36,
+      "duration": 4.1
+    },
+    {
+      "id": 31,
+      "korean": "간단하게 점심을 먹으면 또 잠이 와요. 잠이 옵니다. 그래서 제가 밖에 나가야 해요. 제가 집에서 일을 하니까 이게 문제인데요. 너무 많이 자요. 침대가 바로 여기 있어서 그냥 잠니다. 그래서 점심 먹으면 또 배가 부르면 잠이 와요. 그래서 저는 보통 카페에 가려고 해요. 보통 카페에 가서 유튜브 편집도 하고 제 웹사이트 글도 쓰고 수업, 수업 자려도 만들어요. 제가 수업 책을 만들고 있어서 이런저런 여러가지, 여러가지를 카페에서 합니다. 보통 2시간에서 3시간 정도 카페에서 일하고 오는 것 같아요.",
+      "english": "After eating a light lunch, I fall asleep again. I'm falling asleep. So I have to go outside. This is a problem because I work from home. I sleep too much. The bed is right here so I just sleep. So when I eat lunch, I fall asleep when I’m full again. So I usually try to go to a cafe. I usually go to a cafe and edit YouTube, write articles for my website, and create classes and lectures. I'm making a class book, so I do various things at the cafe. I think I usually come back from working at a cafe for about 2 to 3 hours.",
+      "audio_file": "sentence_31.m4a",
+      "start": 417.86,
+      "end": 467.58,
+      "duration": 49.72
+    },
+    {
+      "id": 32,
+      "korean": "카페에서 일하고 오면요. 또 배고파요. 배고파서 저녁을 간단하게 또 먹습니다. 그리고 저는 저녁을 먹으면서 항상 유튜브나 넷플릭스를 봐요. 여러분들은 답을 먹으면서 항상 유튜브 보나요? 넷플릭스 보나요?",
+      "english": "When I come back from working at a cafe. I'm hungry again. I'm hungry so I have another light dinner. And I always watch YouTube or Netflix while eating dinner. Do you always watch YouTube while answering questions? Do you watch Netflix?",
+      "audio_file": "sentence_32.m4a",
+      "start": 468.22,
+      "end": 489.98,
+      "duration": 21.76
+    },
+    {
+      "id": 33,
+      "korean": "저는 요새 애니메이션, 일본 애니를 많이 보고 있어요. 일본 애니도 보고 아니면 유튜브, 유튜브도 보면서 저녁을 먹습니다. 재밌는 거 보면서 저녁을 먹으면 저는 보통은 수업이 더 있어요. 저녁에는 보통 수업이 2개에서 3개 정도 있습니다. 수업을 하거나 가끔은 저녁 수업이 없어요. 수업이 없으면 제가 일본어 공부하고 있어서 일본어 공부도 하고 일본어 공부도 좀 하다가 저는 저녁에 산책, 산책 나가는 거 좋아해요. 특히 저는 마트, 슈퍼마트에 가는 거 좋아합니다. 여러분들도 슈퍼마트 가는 거 좋아하세요? 저는 슈퍼마트에서 걸으면서 음식 보는 게 재미있어요. 약간 그것도 제가 좋아합니다.",
+      "english": "I've been watching a lot of animation and Japanese animation these days. I eat dinner while watching Japanese animation or YouTube. If I watch something fun for dinner, I usually have more classes to attend. There are usually two or three classes in the evening. There are no classes or sometimes evening classes. When I don't have classes, I'm studying Japanese, so I study Japanese, and I like to go for a walk in the evening. Especially, I like going to supermarkets and supermarts. Do you also like going to the supermarket? I enjoy walking through the supermarket and looking at the food. I kind of like that too.",
+      "audio_file": "sentence_33.m4a",
+      "start": 490.6,
+      "end": 551.5,
+      "duration": 60.9
+    },
+    {
+      "id": 34,
+      "korean": "그래서 저녁에 산책도 하고 마트에 가서 구경하고 저녁에 마트에 가면 세일하는? 세일하는 것들이 있어요. 그래서 세일하는 빵 사고 간식도 사고 그렇게 집에 옵니다. 집에 와서 가끔은 책 읽는 것 같아요. 책 많이 읽고 싶은데 읽으려고 하는데 쉽지 않네요. 그래서 가끔 책을 읽고 가끔 산책하고 가끔 일본어 공부도 하는 것 같아요.",
+      "english": "So, I go for a walk in the evening, go to the supermarket and look around, and when I go to the supermarket in the evening, is there a sale? There are things on sale. So I buy bread on sale, buy some snacks, and come home like that. Sometimes I feel like reading a book when I come home. I want to read a lot of books, but I'm trying to do so, but it's not easy. So I think sometimes I read a book, sometimes I take a walk, and sometimes I study Japanese.",
+      "audio_file": "sentence_34.m4a",
+      "start": 552.16,
+      "end": 586.16,
+      "duration": 34.0
+    },
+    {
+      "id": 35,
+      "korean": "저녁에는 조금 쉬이려고 해요. 저녁에는 제가 많이 생산적이지 않아서 조금 쉬려고 합니다. 그래서 좀 누워있고 그러다가 저는 저녁 9시, 10시에 자요. 엄청 일찍 자죠? 제가 5시에 일어나기 때문에 보통 일찍 자려고 해요. 보통은 10시나 11시, 10시에서 11시 사이에 자는 것 같습니다.",
+      "english": "I'm going to take a little rest in the evening. I'm not very productive in the evening, so I'll try to rest a bit. So I lay down for a bit and then I go to sleep at 9 or 10 pm. You go to bed really early, right? Since I wake up at 5, I usually try to go to bed early. I think I usually go to bed around 10 or 11 or between 10 and 11.",
+      "audio_file": "sentence_35.m4a",
+      "start": 586.78,
+      "end": 616.3,
+      "duration": 29.52
+    },
+    {
+      "id": 36,
+      "korean": "그래서 보통 하루에 6시간에서 7시간 정도 자는 것 같아요. 주말에는 조금 루틴이 달라요. 루틴이 다른데 평일에는 보통 이렇게 보내고 있습니다. 여러분들의 하루 일과는 어떤가요? 궁금하네요. 여러분들은 몇시에 일어나고 몇시에 자요? 점심이랑 저녁은 뭐 먹어요? 퇴근 후에, 퇴근 후에는 뭘 하나요? 여러분들의 하루 일과, 특히 평일, 평일 하루 일과가 궁금하네요. 혹시 시간이 있으면 댓글에 여러분들 데일리 루틴, 하루 일과를 적어주면 제가 다 읽어보도록 하겠습니다.",
+      "english": "So I think I usually sleep about 6 to 7 hours a day. My routine is a little different on the weekends. I have a different routine, but this is how I usually spend my weekdays. What is your daily routine like? I'm curious. What time do you wake up and what time do you go to bed? What do you eat for lunch and dinner? After work, what do you do after work? I'm curious about your daily routine, especially on weekdays. If you have time, please write your daily routine and daily routine in the comments and I will read them all.",
+      "audio_file": "sentence_36.m4a",
+      "start": 617.18,
+      "end": 662.42,
+      "duration": 45.24
+    },
+    {
+      "id": 37,
+      "korean": "오늘은 간단하게 저의 평일, 일상을 얘기해드렸고요. 다음 번에 시간이 되면 제가 또 주말에 뭐 하는지 다른 일상적인 표현들 가지고 오겠습니다.",
+      "english": "Today, I briefly talked about my weekdays and daily life. Next time, when I have time, I will bring other everyday expressions about what I do on the weekend.",
+      "audio_file": "sentence_37.m4a",
+      "start": 663.22,
+      "end": 676.76,
+      "duration": 13.54
+    },
+    {
+      "id": 38,
+      "korean": "오늘도 제 하루 일과 팟캐스트를 들어주셔서 너무 감사하고요. 여러분들 다들 행복한 하루 보내시길 바라겠습니다.",
+      "english": "Thank you so much for listening to my day and podcast today. I hope you all have a happy day.",
+      "audio_file": "sentence_38.m4a",
+      "start": 677.64,
+      "end": 686.76,
+      "duration": 9.12
+    },
+    {
+      "id": 39,
+      "korean": "저희 다음 시간에 또 만나요.",
+      "english": "Let's meet again next time.",
+      "audio_file": "sentence_39.m4a",
+      "start": 687.58,
+      "end": 689.24,
+      "duration": 1.66
+    }
+  ]
+}
