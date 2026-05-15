@@ -66,6 +66,7 @@
       <div id="progress-fill" style="width:0%"></div>
     </div>
     <span id="progress-text">1 / —</span>
+    <span id="score-text" class="score-counter">✓ 0 / 0</span>
   </div>
 
   <!-- Card -->
@@ -128,15 +129,23 @@
   </button>
 </div>
 
-<!-- ═══ Completion Screen ═════════════════════════════════════════════════════ -->
-<div id="completion-screen" class="screen hidden" style="justify-content:center;align-items:center;text-align:center;gap:1rem;">
-  <h2 style="font-size:2rem;font-weight:700;">Practice complete!</h2>
-  <p style="color:var(--text-muted);">
-    You went through all <strong id="completion-count">—</strong> sentences.
-  </p>
+<!-- ═══ Configure Screen ══════════════════════════════════════════════════════ -->
+<div id="configure-screen" class="screen hidden" style="justify-content:center;align-items:center;text-align:center;gap:1.25rem;">
+  <h2 style="font-size:1.75rem;font-weight:700;">How many sentences?</h2>
+  <p style="color:var(--text-muted);">Practicing from <strong id="configure-set-name"></strong></p>
+  <div id="count-options" class="count-options"></div>
+  <button id="configure-back-btn" class="btn-ghost" style="font-size:0.85rem;">← Back</button>
+</div>
+
+<!-- ═══ Round Complete Screen ════════════════════════════════════════════════ -->
+<div id="round-complete-screen" class="screen hidden" style="justify-content:center;align-items:center;text-align:center;gap:1rem;">
+  <p id="round-badge" class="round-badge"></p>
+  <h2 style="font-size:2rem;font-weight:700;">Round complete!</h2>
+  <p id="round-result-text" style="color:var(--text-muted);"></p>
   <div class="completion-actions">
-    <button id="new-video-btn" class="btn-primary">Load New Video</button>
-    <button id="completion-change-btn" class="btn-ghost">Load Different Video</button>
+    <button id="retry-wrong-btn" class="btn-primary hidden">Retry missed →</button>
+    <button id="round-done-btn" class="btn-green hidden">All done! 🎉</button>
+    <button id="round-new-video-btn" class="btn-ghost">Choose different video</button>
   </div>
 </div>
 

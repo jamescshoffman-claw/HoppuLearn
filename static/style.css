@@ -420,6 +420,55 @@ input#korean-input {
   justify-content: center;
 }
 
+/* ─── Score counter ─── */
+.score-counter {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--green);
+  white-space: nowrap;
+}
+
+/* ─── Configure screen ─── */
+.count-options {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.count-option-btn {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-weight: 700;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.count-option-btn:hover {
+  border-color: var(--blue);
+  background: var(--surface2);
+  opacity: 1;
+}
+
+/* ─── Round complete screen ─── */
+.round-badge {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: rgba(56, 139, 253, 0.1);
+  border: 1px solid rgba(56, 139, 253, 0.3);
+  border-radius: 20px;
+  padding: 0.35rem 1rem;
+  display: inline-block;
+}
+
 /* ─── Local pre-loaded sets ─── */
 .local-sets-area {
   display: flex;

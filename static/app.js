@@ -1,10 +1,16 @@
 // ─── State ────────────────────────────────────────────────────────────────────
 const state = {
-  sentences: [],
+  sentences: [],        // current round's sentence list
+  allSentences: [],     // full loaded set
   videoId: null,
   idx: 0,
   revealed: false,
   settings: { writeKorean: true, translateEnglish: true },
+  scores: {},           // { id: true | false }
+  koreanCorrect: null,
+  englishCorrect: null,
+  resultRecorded: false,
+  roundCorrect: 0,
 };
 
 // ─── Audio player ─────────────────────────────────────────────────────────────
@@ -14,10 +20,7 @@ function setPlayBtn(playing) {
 
 function playSegment() {
   const audio = el('audio-player');
-  if (!audio.paused) {
-    audio.pause();
-    return;
-  }
+  if (!audio.paused) { audio.pause(); return; }
   const s = state.sentences[state.idx];
   if (audio.dataset.sentenceId !== String(s.id)) {
     audio.src = s.audio_url;
@@ -37,7 +40,7 @@ function replaySegment() {
 
 function initAudioListeners() {
   const audio = el('audio-player');
-  audio.addEventListener('play', () => setPlayBtn(true));
+  audio.addEventListener('play',  () => setPlayBtn(true));
   audio.addEventListener('pause', () => setPlayBtn(false));
   audio.addEventListener('ended', () => setPlayBtn(false));
 }
@@ -52,6 +55,10 @@ function normalize(text) {
   return (text || '').normalize('NFC').trim().replace(/\s+/g, ' ');
 }
 
+function escHtml(str) {
+  return (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 function saveSettings() {
   localStorage.setItem('kp-settings', JSON.stringify(state.settings));
 }
@@ -59,12 +66,103 @@ function saveSettings() {
 function loadSettings() {
   try {
     const s = JSON.parse(localStorage.getItem('kp-settings') || '{}');
-    if (typeof s.writeKorean === 'boolean') state.settings.writeKorean = s.writeKorean;
+    if (typeof s.writeKorean    === 'boolean') state.settings.writeKorean    = s.writeKorean;
     if (typeof s.translateEnglish === 'boolean') state.settings.translateEnglish = s.translateEnglish;
   } catch (_) {}
 }
 
-// ─── Load video ───────────────────────────────────────────────────────────────
+// ─── Score tracking ───────────────────────────────────────────────────────────
+function recordResult() {
+  if (state.resultRecorded) return;
+  state.resultRecorded = true;
+
+  const listenOnly = !state.settings.writeKorean && !state.settings.translateEnglish;
+  let correct;
+
+  if (listenOnly) {
+    correct = true;
+  } else {
+    const koreanOk = state.settings.writeKorean ? (state.koreanCorrect === true) : true;
+    const englishOk = (state.settings.translateEnglish && state.englishCorrect !== null)
+      ? state.englishCorrect : true;
+    correct = koreanOk && englishOk;
+  }
+
+  const s = state.sentences[state.idx];
+  state.scores[s.id] = correct;
+  if (correct) state.roundCorrect++;
+  updateScoreCounter();
+}
+
+function updateScoreCounter() {
+  el('score-text').textContent = `✓ ${state.roundCorrect} / ${state.sentences.length}`;
+}
+
+// ─── Round management ─────────────────────────────────────────────────────────
+function startRound(sentences) {
+  state.sentences = sentences;
+  state.idx = 0;
+  state.roundCorrect = 0;
+  state.scores = {};
+  sentences.forEach(s => { state.scores[s.id] = null; });
+
+  hide('load-screen', 'configure-screen', 'round-complete-screen');
+  show('practice-screen');
+  el('play-btn').disabled  = false;
+  el('replay-btn').disabled = false;
+  updateScoreCounter();
+  renderCard();
+}
+
+function finishRound() {
+  hide('practice-screen');
+
+  const wrongSentences = state.sentences.filter(s => state.scores[s.id] === false);
+  el('round-result-text').textContent =
+    `You got ${state.roundCorrect} out of ${state.sentences.length} correct.`;
+
+  if (wrongSentences.length === 0) {
+    el('round-badge').textContent = '🎉 All correct!';
+    hide('retry-wrong-btn');
+    show('round-done-btn');
+  } else {
+    el('round-badge').textContent = `${wrongSentences.length} to retry`;
+    el('retry-wrong-btn').textContent = `Retry ${wrongSentences.length} missed →`;
+    el('retry-wrong-btn').onclick = () => startRound(wrongSentences);
+    show('retry-wrong-btn');
+    hide('round-done-btn');
+  }
+  show('round-complete-screen');
+}
+
+// ─── Configure screen ─────────────────────────────────────────────────────────
+function showConfigure(name, sentences) {
+  state.allSentences = sentences;
+  state.videoId = name;
+
+  el('configure-set-name').textContent = name;
+  const total = sentences.length;
+  const counts = [10, 25, 50].filter(n => n < total);
+  counts.push(total);
+
+  const container = el('count-options');
+  container.innerHTML = counts.map(n =>
+    `<button class="count-option-btn" data-count="${n}">
+       ${n === total ? `All (${n})` : n}
+     </button>`
+  ).join('');
+
+  container.querySelectorAll('.count-option-btn').forEach(btn => {
+    btn.addEventListener('click', () =>
+      startRound(state.allSentences.slice(0, parseInt(btn.dataset.count)))
+    );
+  });
+
+  hide('load-screen', 'practice-screen', 'round-complete-screen');
+  show('configure-screen');
+}
+
+// ─── Load video (URL) ─────────────────────────────────────────────────────────
 async function loadVideo(url) {
   hide('load-error');
   el('load-btn').disabled = true;
@@ -78,23 +176,10 @@ async function loadVideo(url) {
     });
     const data = await res.json();
 
-    if (!res.ok) {
-      showLoadError(data.error || 'Something went wrong.');
-      return;
-    }
+    if (!res.ok) { showLoadError(data.error || 'Something went wrong.'); return; }
+    if (!data.sentences?.length) { showLoadError('No sentences found.'); return; }
 
-    if (!data.sentences || data.sentences.length === 0) {
-      showLoadError('No sentences found.');
-      return;
-    }
-
-    state.sentences = data.sentences;
-    state.videoId = data.video_id;
-    state.idx = 0;
-
-    el('play-btn').disabled = false;
-    el('replay-btn').disabled = false;
-    startPractice();
+    showConfigure(data.video_id, data.sentences);
   } catch (e) {
     showLoadError('Network error: ' + e.message);
   } finally {
@@ -109,28 +194,27 @@ function showLoadError(msg) {
 }
 
 // ─── Practice ─────────────────────────────────────────────────────────────────
-function startPractice() {
-  hide('load-screen');
-  show('practice-screen');
-  renderCard();
-}
-
 function renderCard() {
   state.revealed = false;
+  state.koreanCorrect  = null;
+  state.englishCorrect = null;
+  state.resultRecorded = false;
+
   el('audio-player').pause();
   setPlayBtn(false);
-  const s = state.sentences[state.idx];
+
+  const s     = state.sentences[state.idx];
   const total = state.sentences.length;
 
-  el('progress-fill').style.width = `${(state.idx / total) * 100}%`;
-  el('progress-text').textContent = `${state.idx + 1} / ${total}`;
+  el('progress-fill').style.width  = `${(state.idx / total) * 100}%`;
+  el('progress-text').textContent  = `${state.idx + 1} / ${total}`;
 
-  el('korean-input').value = '';
-  el('english-input').value = '';
-  el('korean-input').className = '';
+  el('korean-input').value     = '';
+  el('english-input').value    = '';
+  el('korean-input').className  = '';
   el('english-input').className = '';
 
-  state.settings.writeKorean ? show('korean-group') : hide('korean-group');
+  state.settings.writeKorean      ? show('korean-group')  : hide('korean-group');
   state.settings.translateEnglish ? show('english-group') : hide('english-group');
 
   if (!s.english && state.settings.translateEnglish) {
@@ -147,11 +231,8 @@ function renderCard() {
   const listenOnly = !state.settings.writeKorean && !state.settings.translateEnglish;
   el('check-btn').textContent = listenOnly ? 'Reveal' : 'Check Answer';
 
-  if (state.settings.writeKorean) {
-    el('korean-input').focus();
-  } else if (state.settings.translateEnglish) {
-    el('english-input').focus();
-  }
+  if (state.settings.writeKorean) el('korean-input').focus();
+  else if (state.settings.translateEnglish) el('english-input').focus();
 }
 
 function checkAnswer() {
@@ -165,13 +246,13 @@ function checkAnswer() {
   let needSelfAssess = false;
 
   if (state.settings.writeKorean) {
-    const input = normalize(el('korean-input').value);
+    const input    = normalize(el('korean-input').value);
     const expected = normalize(s.korean);
-    const correct = input === expected;
-    const tag = correct
+    state.koreanCorrect = input === expected;
+    const tag = state.koreanCorrect
       ? '<span class="feedback-tag correct">✓ Correct</span>'
       : '<span class="feedback-tag incorrect">✗ Incorrect</span>';
-    el('korean-input').className = correct ? 'correct' : 'incorrect';
+    el('korean-input').className = state.koreanCorrect ? 'correct' : 'incorrect';
     revealHTML += `
       <div class="answer-block korean">
         <span class="answer-label">Korean</span>
@@ -203,55 +284,39 @@ function checkAnswer() {
   if (needSelfAssess) {
     show('self-assess-row');
   } else {
+    recordResult();
     show('next-btn');
   }
 }
 
 function selfAssess(correct) {
+  state.englishCorrect = correct;
+  recordResult();
   hide('self-assess-row');
   show('next-btn');
 }
 
 function nextCard() {
+  recordResult(); // no-op if already recorded
   state.idx++;
-  if (state.idx >= state.sentences.length) {
-    showCompletion();
-  } else {
-    renderCard();
-  }
-}
-
-function showCompletion() {
-  hide('practice-screen');
-  el('completion-count').textContent = state.sentences.length;
-  show('completion-screen');
-}
-
-function restartPractice() {
-  state.idx = 0;
-  hide('completion-screen');
-  show('practice-screen');
-  renderCard();
+  if (state.idx >= state.sentences.length) finishRound();
+  else renderCard();
 }
 
 function goToLoadScreen() {
-  hide('practice-screen', 'completion-screen');
+  hide('practice-screen', 'round-complete-screen', 'configure-screen');
   show('load-screen');
   el('video-url').value = '';
-}
-
-function escHtml(str) {
-  return (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 // ─── Settings ─────────────────────────────────────────────────────────────────
 function applySettingsToUI() {
   el('setting-write-korean').checked = state.settings.writeKorean;
-  el('setting-translate').checked = state.settings.translateEnglish;
+  el('setting-translate').checked    = state.settings.translateEnglish;
 }
 
 function onSettingChange() {
-  state.settings.writeKorean = el('setting-write-korean').checked;
+  state.settings.writeKorean      = el('setting-write-korean').checked;
   state.settings.translateEnglish = el('setting-translate').checked;
   saveSettings();
   if (state.sentences.length > 0 && !state.revealed) renderCard();
@@ -262,7 +327,7 @@ async function fetchLocalSets() {
   try {
     const res = await fetch('/api/local-sets');
     const { sets } = await res.json();
-    if (!sets || sets.length === 0) return;
+    if (!sets?.length) return;
 
     const list = el('local-sets-list');
     list.innerHTML = sets.map(s => `
@@ -283,47 +348,36 @@ async function fetchLocalSets() {
 async function loadLocalSet(name) {
   hide('load-error');
   try {
-    const res = await fetch(`/api/local-sets/${encodeURIComponent(name)}/sentences`);
+    const res  = await fetch(`/api/local-sets/${encodeURIComponent(name)}/sentences`);
     const data = await res.json();
-    if (!res.ok) { showLoadError(data.error || 'Failed to load.'); return; }
-    if (!data.sentences?.length) { showLoadError('No sentences found.'); return; }
-    state.sentences = data.sentences;
-    state.videoId = name;
-    state.idx = 0;
-    el('play-btn').disabled = false;
-    el('replay-btn').disabled = false;
-    startPractice();
+    if (!res.ok)          { showLoadError(data.error || 'Failed to load.'); return; }
+    if (!data.sentences?.length) { showLoadError('No sentences found.');    return; }
+    showConfigure(name, data.sentences);
   } catch (e) {
     showLoadError('Network error: ' + e.message);
   }
 }
 
 // ─── Boot ─────────────────────────────────────────────────────────────────────
-async function autoLoadSession() {
-  // No auto-load — show load screen so user can choose
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   loadSettings();
   applySettingsToUI();
-
   fetchLocalSets();
 
   el('load-btn').addEventListener('click', () => {
     const url = el('video-url').value.trim();
     if (url) loadVideo(url);
   });
-
   el('video-url').addEventListener('keydown', e => {
     if (e.key === 'Enter') el('load-btn').click();
   });
 
   initAudioListeners();
-  el('play-btn').addEventListener('click', playSegment);
+  el('play-btn').addEventListener('click',   playSegment);
   el('replay-btn').addEventListener('click', replaySegment);
 
   el('check-btn').addEventListener('click', checkAnswer);
-  el('skip-btn').addEventListener('click', checkAnswer);
+  el('skip-btn').addEventListener('click',  checkAnswer);
 
   el('got-it-btn').addEventListener('click', () => selfAssess(true));
   el('missed-btn').addEventListener('click', () => selfAssess(false));
@@ -331,12 +385,18 @@ document.addEventListener('DOMContentLoaded', () => {
   el('next-btn').addEventListener('click', nextCard);
 
   el('setting-write-korean').addEventListener('change', onSettingChange);
-  el('setting-translate').addEventListener('change', onSettingChange);
+  el('setting-translate').addEventListener('change',    onSettingChange);
 
-  el('change-video-btn').addEventListener('click', goToLoadScreen);
-  el('restart-btn').addEventListener('click', restartPractice);
-  el('new-video-btn').addEventListener('click', goToLoadScreen);
-  el('completion-change-btn').addEventListener('click', goToLoadScreen);
+  el('change-video-btn').addEventListener('click',  goToLoadScreen);
+  el('restart-btn').addEventListener('click', () => showConfigure(state.videoId, state.allSentences));
+
+  el('round-done-btn').addEventListener('click',      goToLoadScreen);
+  el('round-new-video-btn').addEventListener('click', goToLoadScreen);
+
+  el('configure-back-btn').addEventListener('click', () => {
+    hide('configure-screen');
+    show('load-screen');
+  });
 
   document.addEventListener('keydown', e => {
     if (e.target.tagName === 'INPUT') return;
