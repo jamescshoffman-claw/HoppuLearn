@@ -48,6 +48,13 @@ header .subtitle {
   color: var(--text-muted);
 }
 
+.header-spacer { flex: 1; }
+
+.btn-sm {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.85rem;
+}
+
 /* ─── Screens ─── */
 .screen {
   width: 100%;

@@ -390,6 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
   el('setting-write-korean').addEventListener('change', onSettingChange);
   el('setting-translate').addEventListener('change',    onSettingChange);
 
+  el('main-menu-btn').addEventListener('click',    goToLoadScreen);
   el('change-video-btn').addEventListener('click',  goToLoadScreen);
   el('restart-btn').addEventListener('click', () => showConfigure(state.videoId, state.allSentences));
 
