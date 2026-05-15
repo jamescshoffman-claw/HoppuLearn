@@ -1,0 +1,14 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+
+# Large downloaded video files
+downloads/*.mp4
+downloads/*.webm
+
+# Whisper processing cache
+data/
+
+# Separate project directory
+HoppuLearn/

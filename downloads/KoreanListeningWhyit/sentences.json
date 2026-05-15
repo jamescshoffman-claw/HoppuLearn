@@ -1,0 +1,455 @@
+{
+  "sentence_count": 50,
+  "sentences": [
+    {
+      "id": 1,
+      "korean": "안녕하세요 여러분. 톡투민 코리안의 김예지입니다.",
+      "english": "hello everyone. This is Kim Ye-ji from Tok To Min Korean.",
+      "audio_file": "sentence_01.m4a",
+      "start": 0.0,
+      "end": 3.84,
+      "duration": 3.84
+    },
+    {
+      "id": 2,
+      "korean": "여러분 여기가 어디인지 아시나요?",
+      "english": "Do you guys know where this is?",
+      "audio_file": "sentence_02.m4a",
+      "start": 4.5,
+      "end": 6.48,
+      "duration": 1.98
+    },
+    {
+      "id": 3,
+      "korean": "여기는 홍익대학교 캠퍼스 안인데요. 홍대 라고도 하죠.",
+      "english": "This is the Hongik University campus. It is also called Hongdae.",
+      "audio_file": "sentence_03.m4a",
+      "start": 7.2,
+      "end": 12.5,
+      "duration": 5.3
+    },
+    {
+      "id": 4,
+      "korean": "홍대는 저한테 되게 의미 있는 장소예요. 왜냐하면 제가 홍대를 다녔기 때문입니다.",
+      "english": "Hongdae is a very meaningful place to me. Because I went to Hongdae.",
+      "audio_file": "sentence_04.m4a",
+      "start": 13.2,
+      "end": 20.4,
+      "duration": 7.2
+    },
+    {
+      "id": 5,
+      "korean": "이 캠퍼스 안에서 친구들이랑 같이 놀고 공부했던 기억이 나는데요.",
+      "english": "I remember playing and studying with my friends on this campus.",
+      "audio_file": "sentence_05.m4a",
+      "start": 21.28,
+      "end": 26.64,
+      "duration": 5.36
+    },
+    {
+      "id": 6,
+      "korean": "오늘의 주제는 바로 친구, 친구 만들기입니다.",
+      "english": "Today's topic is friends, making friends.",
+      "audio_file": "sentence_06.m4a",
+      "start": 27.6,
+      "end": 31.88,
+      "duration": 4.28
+    },
+    {
+      "id": 7,
+      "korean": "한국에서 생활하셨던 분들이라면 한국에서 친구를 사귀어본 경험이 있으실 것 같아요.",
+      "english": "If you have lived in Korea, you probably have had the experience of making friends there.",
+      "audio_file": "sentence_07.m4a",
+      "start": 33.12,
+      "end": 40.56,
+      "duration": 7.44
+    },
+    {
+      "id": 8,
+      "korean": "여러분 한국에서 친구 만들기 어떠셨어요? 어려우셨나요?",
+      "english": "How was your experience making friends in Korea? Was it difficult?",
+      "audio_file": "sentence_08.m4a",
+      "start": 41.28,
+      "end": 46.84,
+      "duration": 5.56
+    },
+    {
+      "id": 9,
+      "korean": "저도 주위에 외국인 친구들이 많이 있어요.",
+      "english": "I also have many foreign friends around me.",
+      "audio_file": "sentence_09.m4a",
+      "start": 47.8,
+      "end": 51.08,
+      "duration": 3.28
+    },
+    {
+      "id": 10,
+      "korean": "외국인 친구들이 한국에서 친구 만들기 어려워요 라고 이야기하는 걸 많이 들었어요.",
+      "english": "I have heard many foreign friends say that it is difficult to make friends in Korea.",
+      "audio_file": "sentence_10.m4a",
+      "start": 51.84,
+      "end": 59.32,
+      "duration": 7.48
+    },
+    {
+      "id": 11,
+      "korean": "오늘은 한국에서 외국인으로서 친구를 만드는 게 왜 어려운지 그리고 어떻게 하면 한국인 친구들을 잘 만들 수 있는지 소개해 보려고 합니다.",
+      "english": "Today, I would like to introduce why it is difficult to make friends as a foreigner in Korea and how to make good Korean friends.",
+      "audio_file": "sentence_11.m4a",
+      "start": 60.06,
+      "end": 72.9,
+      "duration": 12.84
+    },
+    {
+      "id": 12,
+      "korean": "일단 첫 번째 이유는 언어 장벽, 랭그이지 베리얼, 언어 장벽이 있겠는데요. 한국에서는 영어로 이야기하는 거에 대해서 아직 부담을 많이 느끼는 것 같아요.",
+      "english": "First of all, the first reason is language barrier, language barrier, language barrier. I think I still feel a lot of pressure about speaking in English in Korea.",
+      "audio_file": "sentence_12.m4a",
+      "start": 73.9,
+      "end": 89.26,
+      "duration": 15.36
+    },
+    {
+      "id": 13,
+      "korean": "그래서 여러분이 길에서 한국인에게 영어로 이야기를 하면",
+      "english": "So when you speak English to a Korean on the street,",
+      "audio_file": "sentence_13.m4a",
+      "start": 90.28,
+      "end": 96.34,
+      "duration": 6.06
+    },
+    {
+      "id": 14,
+      "korean": "한국 사람들이 좀 부담을 느낄 수 있어요.",
+      "english": "Korean people may feel a bit burdened.",
+      "audio_file": "sentence_14.m4a",
+      "start": 97.02,
+      "end": 101.0,
+      "duration": 3.98
+    },
+    {
+      "id": 15,
+      "korean": "그 이유는 한국 사람들 머리 속에는 영어 하면 시험 과목이 떠오르는 경우가 많기 때문이에요.",
+      "english": "The reason is that in the minds of Koreans, when they think of English, test subjects often come to mind.",
+      "audio_file": "sentence_15.m4a",
+      "start": 101.96,
+      "end": 112.24,
+      "duration": 10.28
+    },
+    {
+      "id": 16,
+      "korean": "그래서 한국 사람들은 영어를 열심히 공부해 본 경험이 많이 있을 거예요.",
+      "english": "So Korean people probably have a lot of experience studying English hard.",
+      "audio_file": "sentence_16.m4a",
+      "start": 112.96,
+      "end": 119.72,
+      "duration": 6.76
+    },
+    {
+      "id": 17,
+      "korean": "그리고 영어를 잘 하고 싶다는 마음도 있어요.",
+      "english": "I also want to become good at English.",
+      "audio_file": "sentence_17.m4a",
+      "start": 120.7,
+      "end": 124.58,
+      "duration": 3.88
+    },
+    {
+      "id": 18,
+      "korean": "그래서 누군가 영어로 대화를 시작하면 시험을 보는 것 같은 기분을 느끼곤 해요. 예를 들어서 누군가 와서 이 수학 문제 한번 풀어보세요 라고 하는 것과 비슷한 느낌을 받을 수 있어요.",
+      "english": "So when someone starts a conversation in English, I often feel like I'm taking a test. For example, it can feel similar to someone coming and saying, “Try solving this math problem.”",
+      "audio_file": "sentence_18.m4a",
+      "start": 125.54,
+      "end": 143.58,
+      "duration": 18.04
+    },
+    {
+      "id": 19,
+      "korean": "그래서 언어 장벽이 있는데요.",
+      "english": "So there is a language barrier.",
+      "audio_file": "sentence_19.m4a",
+      "start": 144.52,
+      "end": 146.78,
+      "duration": 2.26
+    },
+    {
+      "id": 20,
+      "korean": "그러면 어떻게 해결하면 좋을까요?",
+      "english": "So how can we solve this?",
+      "audio_file": "sentence_20.m4a",
+      "start": 147.6,
+      "end": 150.18,
+      "duration": 2.58
+    },
+    {
+      "id": 21,
+      "korean": "여러분 한국어를 공부하는 걸 추천드립니다. 여러분들이 한국어를 TV에 나오는 외국인들처럼 그렇게 잘할 필요도 없어요.",
+      "english": "I recommend everyone to study Korean. You don't need to be as good at Korean as the foreigners on TV.",
+      "audio_file": "sentence_21.m4a",
+      "start": 151.14,
+      "end": 162.46,
+      "duration": 11.32
+    },
+    {
+      "id": 22,
+      "korean": "그냥 조금 조금씩 한국어를 공부하는 걸 추천드리겠습니다.",
+      "english": "I recommend that you just study Korean little by little.",
+      "audio_file": "sentence_22.m4a",
+      "start": 163.12,
+      "end": 168.18,
+      "duration": 5.06
+    },
+    {
+      "id": 23,
+      "korean": "실제로 이런 연구 결과가 있대요.",
+      "english": "There are actually research results like this.",
+      "audio_file": "sentence_23.m4a",
+      "start": 169.06,
+      "end": 172.28,
+      "duration": 3.22
+    },
+    {
+      "id": 24,
+      "korean": "어린 아이들을 대상으로 한 리서치인데요.",
+      "english": "This is research targeting young children.",
+      "audio_file": "sentence_24.m4a",
+      "start": 172.92,
+      "end": 175.96,
+      "duration": 3.04
+    },
+    {
+      "id": 25,
+      "korean": "어린 아이들은 본인과 생김새, 얼굴의 모습이라든지 외관의 모습, 그런 생김새가 비슷한 사람들과 더 친구가 되고 싶어 하는데요.",
+      "english": "Young children want to be friends more with people who are similar to them in terms of appearance, face shape, and exterior appearance.",
+      "audio_file": "sentence_25.m4a",
+      "start": 176.88,
+      "end": 189.82,
+      "duration": 12.94
+    },
+    {
+      "id": 26,
+      "korean": "그러면 이때 2명이 있다고 생각해 볼게요.",
+      "english": "So let’s imagine that there are two people at this time.",
+      "audio_file": "sentence_26.m4a",
+      "start": 190.72,
+      "end": 193.96,
+      "duration": 3.24
+    },
+    {
+      "id": 27,
+      "korean": "제가 있고 2명의 친구가 있어요.",
+      "english": "I have two friends.",
+      "audio_file": "sentence_27.m4a",
+      "start": 194.58,
+      "end": 197.26,
+      "duration": 2.68
+    },
+    {
+      "id": 28,
+      "korean": "한 친구는 한국인처럼 생겼어요.",
+      "english": "One friend looks Korean.",
+      "audio_file": "sentence_28.m4a",
+      "start": 198.02,
+      "end": 201.22,
+      "duration": 3.2
+    },
+    {
+      "id": 29,
+      "korean": "그런데 한국어를 전혀 못 해요. 예를 들어서 이 친구는 독이로만 하는 친구예요. 그리고 다른 친구가 있어요.",
+      "english": "But I don’t speak Korean at all. For example, this friend is a friend who only talks about poison. And I have another friend.",
+      "audio_file": "sentence_29.m4a",
+      "start": 201.92,
+      "end": 210.76,
+      "duration": 8.84
+    },
+    {
+      "id": 30,
+      "korean": "다른 친구는 생김새는 한국인 같지 않아요.",
+      "english": "The other friend doesn't look Korean.",
+      "audio_file": "sentence_30.m4a",
+      "start": 211.4,
+      "end": 214.74,
+      "duration": 3.34
+    },
+    {
+      "id": 31,
+      "korean": "외국인 같아요.",
+      "english": "I feel like a foreigner.",
+      "audio_file": "sentence_31.m4a",
+      "start": 215.4,
+      "end": 216.34,
+      "duration": 0.94
+    },
+    {
+      "id": 32,
+      "korean": "그런데 이 친구는 한국어를 잘해요.",
+      "english": "But this friend speaks Korean well.",
+      "audio_file": "sentence_32.m4a",
+      "start": 217.04,
+      "end": 220.2,
+      "duration": 3.16
+    },
+    {
+      "id": 33,
+      "korean": "그랬을 때 어린 아이들이 누구한테 더 친근감을 느낄까요?",
+      "english": "In that case, who do young children feel closer to?",
+      "audio_file": "sentence_33.m4a",
+      "start": 221.06,
+      "end": 226.1,
+      "duration": 5.04
+    },
+    {
+      "id": 34,
+      "korean": "누구랑 더 친구를 하고 싶다고 생각할까요?",
+      "english": "Who do you think you would like to be friends with more?",
+      "audio_file": "sentence_34.m4a",
+      "start": 226.88,
+      "end": 229.92,
+      "duration": 3.04
+    },
+    {
+      "id": 35,
+      "korean": "그 리서치 결과에 따르면 모습이 나와 다르더라도 같은 언어를 쓰고 있는 친구랑 더 가까워지고 싶어 한다고 해요. 이만큼 같은 언어를 한다는 것에서 사람들이 친근감을 많이 느끼는 것 같아요.",
+      "english": "According to the research results, people want to get closer to friends who speak the same language, even if they look different from them. I think people feel a lot of intimacy because we speak the same language.",
+      "audio_file": "sentence_35.m4a",
+      "start": 230.88,
+      "end": 249.1,
+      "duration": 18.22
+    },
+    {
+      "id": 36,
+      "korean": "그래서 여러분들도 한국어 조금씩이라도 꼭 배워보세요.",
+      "english": "So, please make sure to learn Korean at least a little bit.",
+      "audio_file": "sentence_36.m4a",
+      "start": 250.0,
+      "end": 254.24,
+      "duration": 4.24
+    },
+    {
+      "id": 37,
+      "korean": "그리고 두 번째 이유는 음... 소개팅 앱 있잖아요. 틴더 같은 소개팅 앱.",
+      "english": "And the second reason is, um... there's a blind date app. A blind date app like Tinder.",
+      "audio_file": "sentence_37.m4a",
+      "start": 255.2,
+      "end": 262.3,
+      "duration": 7.1
+    },
+    {
+      "id": 38,
+      "korean": "아직 한국에서는 소개팅 앱을 많이 사용하지 않는 것 같아요.",
+      "english": "I don't think blind date apps are used much in Korea yet.",
+      "audio_file": "sentence_38.m4a",
+      "start": 262.92,
+      "end": 268.36,
+      "duration": 5.44
+    },
+    {
+      "id": 39,
+      "korean": "물론 한국에서도 사용하는 사람들 있습니다.",
+      "english": "Of course, there are people who use it in Korea too.",
+      "audio_file": "sentence_39.m4a",
+      "start": 269.14,
+      "end": 272.28,
+      "duration": 3.14
+    },
+    {
+      "id": 40,
+      "korean": "그런데 다른 나라에 비해서는 사용하는 사람들이 더 적은 것 같아요. 제가 왜 그런지 이유를 생각해 봤거든요.",
+      "english": "However, compared to other countries, I think there are fewer people using it. I thought about why that was the case.",
+      "audio_file": "sentence_40.m4a",
+      "start": 272.98,
+      "end": 282.94,
+      "duration": 9.96
+    },
+    {
+      "id": 41,
+      "korean": "제 생각에는 온라인에서 친해진 사람을 오프라인에서 만나는 것에 대해서 좀 불안감을 가지고 있는 것 같아요.",
+      "english": "I think I'm a bit anxious about meeting offline people I've become friends with online.",
+      "audio_file": "sentence_41.m4a",
+      "start": 283.78,
+      "end": 294.12,
+      "duration": 10.34
+    },
+    {
+      "id": 42,
+      "korean": "특히 소개팅 앱의 경우에는",
+      "english": "Especially in the case of blind date apps",
+      "audio_file": "sentence_42.m4a",
+      "start": 295.1,
+      "end": 297.42,
+      "duration": 2.32
+    },
+    {
+      "id": 43,
+      "korean": "온라인에서 알게 된 사람을 1대1로 오프라인에서 만나게 되잖아요.",
+      "english": "You meet someone you met online one-on-one offline.",
+      "audio_file": "sentence_43.m4a",
+      "start": 298.14,
+      "end": 304.42,
+      "duration": 6.28
+    },
+    {
+      "id": 44,
+      "korean": "그런 상황에 대해서 아직까지는 좀 부담스럽고 불안하고 어쩌면 위험하다고 생각할 수도 있을 것 같아요.",
+      "english": "I think you may still think of such a situation as a bit burdensome, anxious, and possibly dangerous.",
+      "audio_file": "sentence_44.m4a",
+      "start": 305.28,
+      "end": 314.64,
+      "duration": 9.36
+    },
+    {
+      "id": 45,
+      "korean": "왜냐하면 한국 뉴스를 많이 보면 거기서 온라인에서 만난 사람을 오프라인에서 직접 만나서 어떤 나쁜 일이 일어나는 경우들을 쉽게 들을 수 있거든요.",
+      "english": "Because if you watch a lot of Korean news, you can easily hear about cases where something bad happens when you meet someone you met online in person offline.",
+      "audio_file": "sentence_45.m4a",
+      "start": 315.56,
+      "end": 328.84,
+      "duration": 13.28
+    },
+    {
+      "id": 46,
+      "korean": "그래서 이게 제 추측입니다.",
+      "english": "So this is my guess.",
+      "audio_file": "sentence_46.m4a",
+      "start": 329.58,
+      "end": 331.44,
+      "duration": 1.86
+    },
+    {
+      "id": 47,
+      "korean": "그런데 그런데",
+      "english": "But by the way",
+      "audio_file": "sentence_47.m4a",
+      "start": 332.78,
+      "end": 334.32,
+      "duration": 1.54
+    },
+    {
+      "id": 48,
+      "korean": "소개팅 앱이 아니라",
+      "english": "Not a blind date app",
+      "audio_file": "sentence_48.m4a",
+      "start": 334.94,
+      "end": 336.56,
+      "duration": 1.62
+    },
+    {
+      "id": 49,
+      "korean": "취미를 같이 하는 앱은 조금 더 많은 사람들이 사용을 하고 있어요. 다른 말로 하면 조금 더 활성화 되어 있어요. 예를 들면 다 같이 같은 책을 읽고 그 책에 대해서 이야기를 하는 복서 앱. 예를 들면 트레바리 같은 그런 앱은 사람들이 많이 사용을 해요.",
+      "english": "More people are using apps that share hobbies. In other words, it's a little more active. For example, the Boxer app where everyone reads the same book and talks about it. For example, many people use apps like Trevari.",
+      "audio_file": "sentence_49.m4a",
+      "start": 337.32,
+      "end": 359.28,
+      "duration": 21.96
+    },
+    {
+      "id": 50,
+      "korean": "또 아니면 어떤 운동을 같이 한다든지 아니면 와인 클래스를 듣는 소모임 이런 어플도 사람들이 이용을 많이 합니다. 이런 앱에 대한 광고는 전혀 아니고요. 한국에서 제일 흔하게 쓰는 앱인 것 같아서 한번 소개해드려봤습니다.",
+      "english": "Also, people often use small group apps such as doing some exercise together or taking a wine class. This is not an advertisement for this app at all. It seems to be the most commonly used app in Korea, so I introduced it to you.",
+      "audio_file": "sentence_50.m4a",
+      "start": 360.02,
+      "end": 376.8,
+      "duration": 16.78
+    }
+  ]
+}

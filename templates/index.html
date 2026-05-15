@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Korean Listening Practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<audio id="audio-player" preload="auto"></audio>
+
+<header>
+  <h1>Korean Practice</h1>
+  <span class="subtitle">Listen · Write · Translate</span>
+</header>
+
+<!-- ═══ Load Screen ═══════════════════════════════════════════════════════════ -->
+<div id="load-screen" class="screen">
+  <h2>Load a YouTube Video</h2>
+  <p>Paste a YouTube URL — the video will be downloaded and transcribed locally.<br>
+     <small style="color:var(--text-muted)">First run takes 2–3 min to download &amp; transcribe. Cached after that.</small></p>
+
+  <div class="url-row">
+    <input type="text" id="video-url" placeholder="https://www.youtube.com/watch?v=…" />
+    <button id="load-btn" class="btn-primary">Load</button>
+  </div>
+
+  <div id="local-sets-area" class="local-sets-area hidden">
+    <p class="section-divider">Or choose a pre-loaded video</p>
+    <div id="local-sets-list" class="local-sets-list"></div>
+  </div>
+
+  <div id="load-error" class="msg-error hidden"></div>
+</div>
+
+<!-- ═══ Practice Screen ════════════════════════════════════════════════════════ -->
+<div id="practice-screen" class="screen hidden">
+
+  <!-- Settings bar -->
+  <div id="settings-bar">
+    <span class="settings-label">Practice</span>
+
+    <label class="setting-toggle">
+      <input type="checkbox" id="setting-write-korean" checked>
+      Write Korean
+    </label>
+
+    <label class="setting-toggle">
+      <input type="checkbox" id="setting-translate" checked>
+      Translate to English
+    </label>
+
+    <div class="spacer"></div>
+
+    <button id="change-video-btn" class="btn-ghost" style="font-size:0.82rem; padding:0.4rem 0.9rem;">
+      Load New Video
+    </button>
+  </div>
+
+  <!-- Progress bar -->
+  <div id="progress-area">
+    <div id="progress-track">
+      <div id="progress-fill" style="width:0%"></div>
+    </div>
+    <span id="progress-text">1 / —</span>
+  </div>
+
+  <!-- Card -->
+  <div id="card">
+
+    <!-- Play controls -->
+    <div id="play-area">
+      <div class="play-buttons">
+        <button id="play-btn" class="btn-primary btn-large" disabled title="Play audio (Space)">▶</button>
+        <button id="replay-btn" class="btn-ghost btn-large" disabled title="Replay">↩</button>
+      </div>
+      <span class="play-hint">Listen to the sentence</span>
+    </div>
+
+    <!-- Input area -->
+    <div id="input-area">
+      <div id="korean-group" class="input-group">
+        <label for="korean-input">Write in Korean</label>
+        <input type="text" id="korean-input" lang="ko" autocomplete="off" spellcheck="false"
+               placeholder="한국어로 입력하세요…" />
+      </div>
+
+      <div id="english-group" class="input-group">
+        <label id="english-group-label" for="english-input">Translate to English</label>
+        <input type="text" id="english-input" autocomplete="off" spellcheck="false"
+               placeholder="What does it mean in English?" />
+      </div>
+    </div>
+
+    <!-- Action row -->
+    <div id="action-row">
+      <button id="check-btn" class="btn-primary">Check Answer</button>
+      <button id="skip-btn" class="btn-ghost">Skip</button>
+    </div>
+
+    <!-- Answer reveal (dynamically populated) -->
+    <div id="answer-reveal" class="hidden"></div>
+
+    <!-- Self-assess row (shown when user typed an English translation) -->
+    <div id="self-assess-row" class="self-assess-row hidden">
+      <span class="assess-label">How did your translation compare?</span>
+      <button id="got-it-btn" class="btn-green">Got it ✓</button>
+      <button id="missed-btn" class="btn-red">Missed it ✗</button>
+    </div>
+
+    <!-- Next button row -->
+    <div id="next-row">
+      <button id="next-btn" class="btn-primary hidden">Next →</button>
+    </div>
+
+    <!-- Keyboard hint -->
+    <p style="font-size:0.75rem; color:var(--text-muted); text-align:center; margin-top:0.5rem;">
+      Space to play · Enter to check/next · Switch to Korean keyboard to type (한/영)
+    </p>
+
+  </div>
+
+  <button id="restart-btn" class="btn-ghost" style="align-self:center; font-size:0.82rem;">
+    Restart from beginning
+  </button>
+</div>
+
+<!-- ═══ Completion Screen ═════════════════════════════════════════════════════ -->
+<div id="completion-screen" class="screen hidden" style="justify-content:center;align-items:center;text-align:center;gap:1rem;">
+  <h2 style="font-size:2rem;font-weight:700;">Practice complete!</h2>
+  <p style="color:var(--text-muted);">
+    You went through all <strong id="completion-count">—</strong> sentences.
+  </p>
+  <div class="completion-actions">
+    <button id="new-video-btn" class="btn-primary">Load New Video</button>
+    <button id="completion-change-btn" class="btn-ghost">Load Different Video</button>
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
