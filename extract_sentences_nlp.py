@@ -62,6 +62,7 @@ if __name__ == "__main__":
     )
     n = int(sys.argv[2]) if len(sys.argv) > 2 else 10
     out_dir = sys.argv[3] if len(sys.argv) > 3 else os.path.join(os.path.dirname(video) or ".", "sentences_nlp")
+    difficulty = sys.argv[4] if len(sys.argv) > 4 else None
     os.makedirs(out_dir, exist_ok=True)
 
     audio_path = "/tmp/comprehendo_audio.wav"
@@ -94,7 +95,10 @@ if __name__ == "__main__":
         })
 
     index_path = os.path.join(out_dir, "sentences.json")
+    payload = {"sentence_count": len(records), "sentences": records}
+    if difficulty:
+        payload["difficulty"] = difficulty
     with open(index_path, "w", encoding="utf-8") as f:
-        json.dump({"sentence_count": len(records), "sentences": records}, f, ensure_ascii=False, indent=2)
+        json.dump(payload, f, ensure_ascii=False, indent=2)
     print(f"\nSubtitle index written to {index_path}")
     print("\nDone.")

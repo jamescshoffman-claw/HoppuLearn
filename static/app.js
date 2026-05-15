@@ -333,7 +333,10 @@ async function fetchLocalSets() {
     list.innerHTML = sets.map(s => `
       <button class="local-set-btn" data-name="${escHtml(s.name)}">
         <span class="local-set-name">${escHtml(s.name)}</span>
-        <span class="local-set-count">${s.sentence_count} sentences</span>
+        <span class="local-set-right">
+          ${s.difficulty ? `<span class="difficulty-badge difficulty-${escHtml(s.difficulty)}">${escHtml(s.difficulty)}</span>` : ''}
+          <span class="local-set-count">${s.sentence_count} sentences</span>
+        </span>
       </button>
     `).join('');
 

@@ -386,7 +386,11 @@ def list_local_sets():
                 continue
             data = json.loads(cache.read_text(encoding='utf-8'))
             sentences = data.get('sentences', data) if isinstance(data, dict) else data
-            sets.append({'name': d.name, 'sentence_count': len(sentences)})
+            sets.append({
+                'name': d.name,
+                'sentence_count': len(sentences),
+                'difficulty': data.get('difficulty') if isinstance(data, dict) else None,
+            })
     return jsonify({'sets': sets})
 
 

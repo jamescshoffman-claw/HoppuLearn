@@ -532,10 +532,29 @@ input#korean-input {
   font-weight: 500;
 }
 
+.local-set-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .local-set-count {
   font-size: 0.8rem;
   color: var(--text-muted);
 }
+
+.difficulty-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.difficulty-easy    { background: rgba(63,185,80,0.15);  color: var(--green); }
+.difficulty-medium  { background: rgba(210,153,34,0.15); color: var(--yellow); }
+.difficulty-hard    { background: rgba(248,81,73,0.15);  color: var(--red); }
 
 /* ─── YouTube player (hidden but active) ─── */
 #yt-player-wrap {
