@@ -59,6 +59,121 @@ function escHtml(str) {
   return (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+// ─── Korean diff (character-level LCS + optional jamo hint) ──────────────────
+const HANGUL_BASE = 0xAC00;
+const HANGUL_END  = 0xD7A3;
+const HANGUL_INITIALS = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+const HANGUL_MEDIALS  = ['ㅏ','ㅐ','ㅑ','ㅒ','ㅓ','ㅔ','ㅕ','ㅖ','ㅗ','ㅘ','ㅙ','ㅚ','ㅛ','ㅜ','ㅝ','ㅞ','ㅟ','ㅠ','ㅡ','ㅢ','ㅣ'];
+const HANGUL_FINALS   = ['','ㄱ','ㄲ','ㄳ','ㄴ','ㄵ','ㄶ','ㄷ','ㄹ','ㄺ','ㄻ','ㄼ','ㄽ','ㄾ','ㄿ','ㅀ','ㅁ','ㅂ','ㅄ','ㅅ','ㅆ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+
+function decomposeHangul(ch) {
+  const code = ch.codePointAt(0);
+  if (code < HANGUL_BASE || code > HANGUL_END) return null;
+  const offset = code - HANGUL_BASE;
+  return {
+    i: HANGUL_INITIALS[Math.floor(offset / (21 * 28))],
+    m: HANGUL_MEDIALS[Math.floor((offset % (21 * 28)) / 28)],
+    f: HANGUL_FINALS[offset % 28],
+  };
+}
+
+function lcsDiff(a, b) {
+  const n = a.length, m = b.length;
+  const dp = Array.from({ length: n + 1 }, () => new Int32Array(m + 1));
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= m; j++) {
+      dp[i][j] = a[i-1] === b[j-1] ? dp[i-1][j-1] + 1 : Math.max(dp[i-1][j], dp[i][j-1]);
+    }
+  }
+  const ops = [];
+  let i = n, j = m;
+  while (i > 0 && j > 0) {
+    if (a[i-1] === b[j-1])           { ops.push({ op:'eq',  char:a[i-1] }); i--; j--; }
+    else if (dp[i-1][j] >= dp[i][j-1]) { ops.push({ op:'del', char:a[i-1] }); i--; }
+    else                              { ops.push({ op:'ins', char:b[j-1] }); j--; }
+  }
+  while (i > 0) { ops.push({ op:'del', char:a[i-1] }); i--; }
+  while (j > 0) { ops.push({ op:'ins', char:b[j-1] }); j--; }
+  ops.reverse();
+  return ops;
+}
+
+// Merge adjacent del+ins (or ins+del) runs into substitution blocks so we can
+// render them as paired "you wrote X / expected Y" with an optional jamo hint.
+function consolidateDiff(ops) {
+  const out = [];
+  let k = 0;
+  while (k < ops.length) {
+    const here = ops[k].op;
+    if (here === 'del' || here === 'ins') {
+      let kEnd = k;
+      while (kEnd < ops.length && ops[kEnd].op === here) kEnd++;
+      const otherOp = here === 'del' ? 'ins' : 'del';
+      let mEnd = kEnd;
+      while (mEnd < ops.length && ops[mEnd].op === otherOp) mEnd++;
+      if (mEnd > kEnd) {
+        const dels = here === 'del' ? ops.slice(k, kEnd) : ops.slice(kEnd, mEnd);
+        const ins  = here === 'del' ? ops.slice(kEnd, mEnd) : ops.slice(k, kEnd);
+        out.push({
+          op: 'sub',
+          u: dels.map(o => o.char).join(''),
+          e: ins.map(o => o.char).join(''),
+        });
+        k = mEnd;
+        continue;
+      }
+    }
+    out.push(ops[k]);
+    k++;
+  }
+  return out;
+}
+
+function jamoHint(uChar, eChar) {
+  const dU = decomposeHangul(uChar);
+  const dE = decomposeHangul(eChar);
+  if (!dU || !dE) return '';
+  const parts = [];
+  if (dU.i !== dE.i) parts.push(`${dU.i} → ${dE.i}`);
+  if (dU.m !== dE.m) parts.push(`${dU.m} → ${dE.m}`);
+  if (dU.f !== dE.f) {
+    if (!dU.f)      parts.push(`+받침 ${dE.f}`);
+    else if (!dE.f) parts.push(`−받침 ${dU.f}`);
+    else            parts.push(`받침 ${dU.f} → ${dE.f}`);
+  }
+  return parts.join(' · ');
+}
+
+function renderKoreanDiff(userText, expectedText) {
+  const ops = consolidateDiff(lcsDiff([...userText], [...expectedText]));
+
+  // Preserve whitespace as actual spaces; use NBSP inside highlight spans so
+  // the background swatch stays visible for space-only diffs.
+  const keepSpace = s => s.replace(/ /g, ' ');
+  let userHtml = '';
+  let expectedHtml = '';
+
+  for (const op of ops) {
+    if (op.op === 'eq') {
+      const e = escHtml(op.char);
+      userHtml     += `<span class="diff-ok">${e}</span>`;
+      expectedHtml += `<span class="diff-ok">${e}</span>`;
+    } else if (op.op === 'del') {
+      userHtml += `<span class="diff-extra" title="extra — remove this">${escHtml(keepSpace(op.char))}</span>`;
+    } else if (op.op === 'ins') {
+      expectedHtml += `<span class="diff-missing" title="you missed this">${escHtml(keepSpace(op.char))}</span>`;
+    } else if (op.op === 'sub') {
+      const hint = (op.u.length === 1 && op.e.length === 1) ? jamoHint(op.u, op.e) : '';
+      const hintSpan = hint ? `<span class="diff-jamo-hint">${escHtml(hint)}</span>` : '';
+      userHtml     += `<span class="diff-extra" title="you wrote this — expected ${escHtml(op.e)}">${escHtml(keepSpace(op.u))}</span>`;
+      expectedHtml += `<span class="diff-missing" title="you wrote ${escHtml(op.u)}">${escHtml(keepSpace(op.e))}</span>${hintSpan}`;
+    }
+  }
+
+  if (!userText) userHtml = '<span class="diff-empty">(nothing typed)</span>';
+  return { userHtml, expectedHtml };
+}
+
 function saveSettings() {
   localStorage.setItem('kp-settings', JSON.stringify(state.settings));
 }
@@ -249,16 +364,28 @@ function checkAnswer() {
     const input    = normalize(el('korean-input').value);
     const expected = normalize(s.korean);
     state.koreanCorrect = input === expected;
-    const tag = state.koreanCorrect
-      ? '<span class="feedback-tag correct">✓ Correct</span>'
-      : '<span class="feedback-tag incorrect">✗ Incorrect</span>';
     el('korean-input').className = state.koreanCorrect ? 'correct' : 'incorrect';
-    revealHTML += `
-      <div class="answer-block korean">
-        <span class="answer-label">Korean</span>
-        <span class="answer-text">${escHtml(s.korean)}</span>
-        ${tag}
-      </div>`;
+
+    if (state.koreanCorrect) {
+      revealHTML += `
+        <div class="answer-block korean">
+          <span class="answer-label">Korean</span>
+          <span class="answer-text">${escHtml(s.korean)}</span>
+          <span class="feedback-tag correct">✓ Correct</span>
+        </div>`;
+    } else {
+      const { userHtml, expectedHtml } = renderKoreanDiff(input, expected);
+      revealHTML += `
+        <div class="answer-block korean">
+          <span class="answer-label">Your answer</span>
+          <span class="answer-text diff-line">${userHtml}</span>
+          <span class="feedback-tag incorrect">✗ Incorrect</span>
+        </div>
+        <div class="answer-block korean">
+          <span class="answer-label">Expected</span>
+          <span class="answer-text diff-line">${expectedHtml}</span>
+        </div>`;
+    }
   } else {
     revealHTML += `
       <div class="answer-block korean">

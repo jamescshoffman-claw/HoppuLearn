@@ -380,6 +380,57 @@ input#korean-input {
 .feedback-tag.correct { background: rgba(63, 185, 80, 0.15); color: var(--green); }
 .feedback-tag.incorrect { background: rgba(248, 81, 73, 0.15); color: var(--red); }
 
+/* ─── Inline diff (Korean answer feedback) ─── */
+.diff-line {
+  display: block;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.diff-line > span { display: inline; }
+
+.diff-ok { color: var(--text); }
+
+.diff-extra {
+  color: var(--red);
+  background: rgba(248, 81, 73, 0.18);
+  text-decoration: line-through;
+  text-decoration-color: rgba(248, 81, 73, 0.7);
+  border-radius: 3px;
+  padding: 0 0.12em;
+}
+
+.diff-missing {
+  color: var(--green);
+  background: rgba(63, 185, 80, 0.2);
+  border-radius: 3px;
+  padding: 0 0.12em;
+  font-weight: 700;
+}
+
+.diff-jamo-hint {
+  display: inline-block;
+  font-family: var(--korean-font);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.05em 0.4em;
+  margin-left: 0.2em;
+  vertical-align: 0.15em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.diff-empty {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 1.1rem;
+  font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+}
+
 .self-assess-row {
   display: flex;
   gap: 0.5rem;
